@@ -20,12 +20,20 @@ def tic_tac_toe_finish(board: TicTacToeBoard, pos_y: int, pos_x: int, symbol: st
 def count_instances(collection: Tuple, instance: Union[int, str]) -> int:
     """
     This function counts the number of occurrences of the instance value within the collection parameter.
-
     :param collection: A tuple containing 0 or more instances
     :param instance: An item in the collection parameter
     :return: An integer.
     """
-    pass  # remove pass statement and implement me
+    # Define a variable to store the count of occurrences
+    count = 0
+    # Iterate through each item in the collection
+    for item in collection:
+        # Check if current item is equal to the instance
+        if item == instance:
+            # Increment count if match is found
+            count += 1
+    # Return the final count
+    return count  # remove pass statement and implement me
 
 
 def print_indexes_and_entries(indexes: Iterable, entries: Iterable) -> None:
