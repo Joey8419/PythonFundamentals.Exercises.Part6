@@ -14,6 +14,7 @@ def tic_tac_toe_finish(board: TicTacToeBoard, pos_y: int, pos_x: int, symbol: st
     :param symbol: The symbol that should be placed in the column (X, or O)
     :return: None
     """
+    board[pos_y][pos_x] = symbol
     pass  # remove pass statement and implement me
 
 
@@ -46,7 +47,17 @@ def print_indexes_and_entries(indexes: Iterable, entries: Iterable) -> None:
     :param entries: A list or tuple
     :return: None
     """
-    pass  # remove pass statement and implement me
+    # Check if the lengths of both indexes and entries are the same
+    if len(indexes) != len(entries):
+        print("Error: lengths of indexes are not the same")
+        return
+
+    # Iterate through the enumerated indexes
+    for index, entry in zip(indexes, entries):
+        # Print the formatted index and entry (10 places)
+        print(f"{index:10}: {entry}")
+
+    return None  # remove pass statement and implement me
 
 
 def print_items_with_index(items: Iterable):
@@ -58,5 +69,9 @@ def print_items_with_index(items: Iterable):
     :param items: A tuple or a list
     :return: None
     """
-    pass  # remove pass statement and implement me
+    # Iterate through indices and items in the list
+    for index in range(1, len(items) + 1):
+        # Print the index and corresponding item
+        print(f"{index}: {items[index - 1]}")
+
 

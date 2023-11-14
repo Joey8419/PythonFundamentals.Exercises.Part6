@@ -39,7 +39,19 @@ def temperature_tuple(temperatures: Iterable, input_unit_of_measurement: str) ->
     :param input_unit_of_measurement: The unit a measure to use to convert the values in the temperatures parameter
     :return: A tuple of tuples
     """
-    convert_func = convert_to_fahrenheit if input_unit_of_measurement.upper() == 'C' else convert_to_celsius
-    result_tuple = tuple((temp, convert_func(temp)) for temp in temperatures)
+    # Create a list to store tuples of original and converted temps
+    converted_temperatures = []
 
-    return result_tuple
+    # Iterate through each temp
+    for temp in temperatures:
+        # Check the specified unit of measurement for conversion
+        if input_unit_of_measurement == 'c':
+            # Convert temp to Fahrenheit if the unit is Celsius
+            converted_temperatures.append((temp, convert_to_fahrenheit(temp)))
+        elif input_unit_of_measurement == 'f':
+            # Convert temp to Celsius if unit is Fahrenheit
+            converted_temperatures.append((temp, convert_to_celsius(temp)))
+
+    # Return result as tuple
+    return tuple(converted_temperatures)
+
